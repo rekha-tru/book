@@ -93,7 +93,7 @@ function git_pull_callback() {
 			$Command = "git pull origin {$branch}";
 			exec($Command, $Output, $ReturnCode);
 			if($ReturnCode != 1){
-				exec('git config pull.rebase false', $output, $ReturnCode);
+				exec("git merge --allow-unrelated-histories {$branch}", $output, $ReturnCode);
 				print_r($output);die;
 			}
 				// <button type="button" class="btn-close close-btn" aria-label="Close"></button>
