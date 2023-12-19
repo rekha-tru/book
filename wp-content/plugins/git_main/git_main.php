@@ -90,7 +90,7 @@ function git_pull_callback() {
 			$repositoryPath = ABSPATH;
 			chdir($repositoryPath);
 			//git config pull.rebase false
-			$Command = "git pull origin {$branch}";
+			$Command = "git pull origin {$branch} --allow-unrelated-histories";
 			exec($Command, $Output, $ReturnCode);
 			if($ReturnCode != 1){
 				exec("git merge --allow-unrelated-histories {$branch}", $output, $ReturnCode);
